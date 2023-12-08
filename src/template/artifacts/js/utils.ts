@@ -82,9 +82,11 @@ export const snarkExecute = async ({
   params = [],
   transition = 'main'
 }: LeoRunParams): Promise<Record<string, unknown>> => {
-  const parsedParams = params.map((v) => v.split('.')[0]);
+  const parsedParams = params.map((v) =>
+    v.includes('{') ? "'" + v.replace(/"|'/g, '') + "'" : v
+  );
   let stringedParams = parsedParams.join(' ');
-  stringedParams = stringedParams.replace(/"|"/g, '');
+  stringedParams = stringedParams.replace(/"/g, '');
 
   // snarkos developer execute sample_program.aleo main  "1u32" "2u32" --private-key APrivateKey1zkp8CZNn3yeCseEtxuVPbDCwSyhGW6yZKUYKfgXmcpoGPWH --query "http://localhost:3030" --broadcast "http://localhost:3030/testnet3/transaction/broadcast"
   // const cmd = `cd ${config.contractPath} && snarkos developer execute  ${config.appName}.aleo ${transition} ${stringedParams} --private-key ${config.privateKey} --query ${nodeEndPoint} --broadcast "${nodeEndPoint}/testnet3/transaction/broadcast"`;
@@ -111,8 +113,11 @@ export const leoRun = async ({
   params = [],
   transition = 'main'
 }: LeoRunParams): Promise<Record<string, unknown>> => {
-  let stringedParams = params.join(' ');
-  stringedParams = stringedParams.replace(/"|"/g, '');
+  const parsedParams = params.map((v) =>
+    v.includes('{') ? "'" + v.replace(/"|'/g, '') + "'" : v
+  );
+  let stringedParams = parsedParams.join(' ');
+  stringedParams = stringedParams.replace(/"/g, '');
   const cmd = `cd ${config.contractPath} && leo run ${transition} ${stringedParams}`;
   console.log(cmd);
   const { stdout } = await execute(cmd);
