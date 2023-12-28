@@ -25,7 +25,7 @@ import {
   LEO_FN_IMPORT,
   JS_FN_IMPORT
 } from './string-constants';
-import { toCamelCase, capitalize } from '../utils/formatters';
+import { toCamelCase, capitalize } from '@aleojs/utils/formatters';
 import TSClassGenerator from './ts-class-generator';
 
 class Generator {

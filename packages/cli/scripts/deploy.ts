@@ -1,8 +1,8 @@
 import path from 'path';
 import fse from 'fs-extra';
 
+import { getAleoConfig, getProjectRoot } from '@aleojs/utils/fs-utils';
 import Shell from '../utils/shell';
-import { getAleoConfig, getProjectRoot } from '../utils/fs-utils';
 
 function createProgramPath(programName: string) {
   const projectRoot = getProjectRoot();

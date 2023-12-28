@@ -1,5 +1,6 @@
 import path from 'path';
-import { writeToFile } from '../utils/fs-utils';
+import { writeToFile } from '@aleojs/utils/fs-utils';
+
 import { Generator } from './generator';
 import { FormatCode } from '../utils/js-formatter';
 

@@ -1,5 +1,5 @@
 {
-  "name": "aleojs-dev",
+  "name": "@aleojs/cli",
   "version": "0.2.0",
   "description": "AleoJS Cli tool",
   "main": "dist/index.js",
@@ -7,7 +7,7 @@
     "build": "npx tsc && npm run copy-template",
     "build:install": "rm -rf dist && npm run build && npm install -g .",
     "win:install": "rmdir /s /q dist && npm run build && npm install -g .",
-    "copy-template": "copyfiles --all -u 1 src/template/* src/template/**/* src/template/**/**/* src/template/**/**/**/* src/template/.env.example src/template/.gitignore ./dist",
+    "copy-template": "copyfiles --all -u 1 template/* template/**/* template/**/**/* template/**/**/**/* template/.env.example template/.gitignore ./dist/template",
     "test": "ts-node test/parser-test.ts",
     "lint": "eslint .",
     "lint:fix": "eslint --fix --ext .ts ."
@@ -28,16 +28,15 @@
   },
   "homepage": "https://github.com/venture23-zkp/aleojs#readme",
   "dependencies": {
+    "@aleojs/core": "^0.2.0",
+    "@aleojs/utils": "^0.2.0",
     "commander": "^11.0.0",
     "copyfiles": "^2.4.1",
     "figlet": "^1.6.0",
-    "fs-extra": "^11.1.1",
-    "js-beautify": "^1.14.11",
-    "zod": "^3.22.4"
+    "fs-extra": "^11.1.1"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.2",
-    "@types/js-beautify": "^1.14.3",
     "@types/node": "^20.8.0",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
@@ -52,6 +51,6 @@
     "typescript": "^5.2.2"
   },
   "bin": {
-    "aleojs-dev": "./dist/index.js"
+    "aleojs-dev": "dist/index.js"
   }
 }

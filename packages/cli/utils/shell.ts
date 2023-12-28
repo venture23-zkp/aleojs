@@ -1,7 +1,15 @@
 import readline from 'readline';
 import { spawn } from 'child_process';
+import os from 'os';
 
-import { getUserShell } from './requirementsCheck';
+
+const isWindows = () => {
+  return os.platform() === 'win32';
+};
+
+const getUserShell = () => {
+  return process.env.SHELL || (isWindows() ? 'powershell' : '/bin/sh');
+};
 
 const ERROR_CODES = {
   SNARK_VM_ERROR: 'ECLI0377010'

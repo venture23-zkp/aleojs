@@ -1,8 +1,8 @@
 import path from 'path';
 import fse from 'fs-extra';
 
-import { getProjectRoot } from '../utils/fs-utils';
-import { toSnakeCase } from '../utils/formatters';
+import { getProjectRoot } from '@aleojs/utils/fs-utils';
+import { toSnakeCase } from '@aleojs/utils/formatters';
 import Shell from '../utils/shell';
 
 async function replaceProgramName(

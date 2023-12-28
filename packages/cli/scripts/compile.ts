@@ -1,8 +1,8 @@
 import fs from 'fs-extra';
 import path from 'path';
 
-import { getFilenamesInDirectory, getProjectRoot } from '../utils/fs-utils';
-import { toSnakeCase } from '../utils/formatters';
+import {getFilenamesInDirectory, getProjectRoot } from "@aleojs/utils/fs-utils";
+import { toSnakeCase } from '@aleojs/utils/formatters';
 import Shell from '../utils/shell';
 
 const GENERATE_FILE_OUT_DIR = 'artifacts';

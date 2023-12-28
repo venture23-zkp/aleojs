@@ -10,7 +10,7 @@ import {
   getProjectRoot,
   pathFromRoot,
   writeToFile
-} from '../utils/fs-utils';
+} from '@aleojs/utils/fs-utils';
 import {
   PROGRAM_DIRECTORY,
   GENERATE_FILE_OUT_DIR
@@ -136,6 +136,7 @@ async function parseAleo(
     GlobalIndexGenerator.update(generator, programName);
     return aleoReflection;
   } catch (error) {
+    console.error(error);
     throw error;
   }
 }
@@ -201,7 +202,7 @@ async function compilePrograms(projectRoot?: string) {
     // Create Output Directory
     if (!fs.existsSync(outputPath)) fs.mkdirSync(outputPath);
 
-    for (let program of folders) {
+    for (const program of folders) {
       const originalName = `${program}.aleo`;
       if (ImportFileCaches.has(originalName)) {
         console.log('Program is already parsed: ', originalName);
@@ -218,3 +219,5 @@ async function compilePrograms(projectRoot?: string) {
 }
 
 export { compilePrograms };
+export * from './parser';
+export * from './tokenizer';

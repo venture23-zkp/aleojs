@@ -1,5 +1,5 @@
+import { tabify } from '@aleojs/utils/formatters';
 import { KeyVal } from '../utils/aleo-utils';
-import { tabify } from '../utils/formatters';
 import { FunctionArgs } from './ts-function-generator';
 
 export default class TSClassGenerator {

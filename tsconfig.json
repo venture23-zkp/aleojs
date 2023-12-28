@@ -8,6 +8,6 @@
     "esModuleInterop": true,
     "moduleResolution": "node"
   },
-  "include": ["src"],
-  "exclude": ["src/template"]
+  "include": ["src", "packages/core/generator", "packages/core/parser", "packages/core/utils/aleo-utils.ts", "packages/core/utils/js-formatter.ts", "packages/utils/fs-utils.ts", "packages/cli/scripts", "packages/cli/utils", "packages/utils/formatters.ts", "packages/cli/template", "packages/cli/index.ts"],
+  "exclude": ["packages/cli/template"]
 }
