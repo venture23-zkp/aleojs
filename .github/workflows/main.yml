@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+      
+      - name: Setup pnpm
         uses: pnpm/actions-setup@v2
         with:
           version: 8
