@@ -1,17 +1,22 @@
 name: Release
+
 on:
   push:
     branches:
       - "**"
 
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
- build:
+ release:
+    name: Release
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
+      content: read
+      pull-request: write
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
@@ -26,6 +31,8 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
-      
-      - name: Build packages
-        run: pnpm build
+
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
