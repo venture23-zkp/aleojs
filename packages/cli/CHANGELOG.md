@@ -1,5 +1,17 @@
 # @aleojs/cli
 
+## 0.2.0
+
+### Minor Changes
+
+- ba1cb74: Added ci
+
+### Patch Changes
+
+- Updated dependencies [ba1cb74]
+  - @aleojs/utils@0.2.0
+  - @aleojs/core@0.2.0
+
 ## 0.1.0
 
 ### Minor Changes
