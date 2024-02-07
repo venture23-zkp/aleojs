@@ -12,7 +12,7 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     permissions:
-      content: read
+      contents: read
       pull-request: write
     steps:
       - name: Checkout Repo
